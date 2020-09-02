@@ -255,7 +255,9 @@ window.addEventListener('resize', function () {
 })
 
 function resize() {
-    if (window.innerWidth < 450)
+    if (window.innerWidth > 768)
+        document.querySelector(".chat-box").style.transform = "translateX(0px)";
+    if (window.innerWidth < 768)
         document.querySelector(".menu-btn").src = "./menu-btn-mobile.png"
     else
         document.querySelector(".menu-btn").src = "./menu-btn.png";
