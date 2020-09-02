@@ -266,5 +266,7 @@ function resize() {
 }
 
 document.querySelector(".log-out").addEventListener("click", () => {
-    auth.signOut();
+    auth.signOut().then(snap => {
+        window.location.reload();
+    });
 })
