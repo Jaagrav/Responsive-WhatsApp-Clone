@@ -172,6 +172,7 @@ document.querySelector(".menu-btn").addEventListener("click", () => {
 let theme = false;
 document.querySelector(".theme-toggle").addEventListener('click', function () {
     if (theme) {
+        document.querySelector(".menu").classList.toggle("closed")
         document.querySelector(".theme-toggle").textContent = "Light Theme";
         document.documentElement.style.setProperty(
             "--background-color",
@@ -211,6 +212,7 @@ document.querySelector(".theme-toggle").addEventListener('click', function () {
         )
         theme = false;
     } else {
+        document.querySelector(".menu").classList.toggle("closed")
         document.querySelector(".theme-toggle").textContent = "Dark Theme";
         document.documentElement.style.setProperty(
             "--background-color",
