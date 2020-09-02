@@ -122,6 +122,7 @@ function openChat(their_profile_picture, their_name, their_email, my_email) {
 
 document.querySelector(".mic").addEventListener('click', function () {
     if (document.querySelector('.text-input').value.trim() != "") {
+        document.querySelector(".text-input").focus();
         firebaseRef.child("user-garbage").child(chat_server).push({
             sender: me,
             text: document.querySelector(".text-input").value.trim(),
@@ -133,6 +134,7 @@ document.querySelector(".mic").addEventListener('click', function () {
 
 document.querySelector(".text-input").addEventListener('keypress', function (e) {
     if (e.key == "Enter") {
+        document.querySelector(".text-input").focus();
         if (document.querySelector('.text-input').value.trim() != "") {
             firebaseRef.child("user-garbage").child(chat_server).push({
                 sender: me,
