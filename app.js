@@ -46,7 +46,8 @@ window.onload = function () {
                     title.textContent = snap.val().name;
                     last_text.textContent = "Hey There! I am using WhatsApp";
                     chat.addEventListener('click', function () {
-                        openChat(snap.val().profile_picture, snap.val().name, snap.key, me)
+                        openChat(snap.val().profile_picture, snap.val().name, snap.key, me);
+                        document.querySelector(".chat-box").style.transform = "translateX(0)";
                     })
 
                     main_element.appendChild(chat);
@@ -61,6 +62,8 @@ window.onload = function () {
                     }
                 }
             });
+        } else {
+            document.querySelector(".login-page").style.transform = "translateY(0)";
         }
     });
 
@@ -71,12 +74,6 @@ let chat_updater = firebaseRef,
 
 function openChat(their_profile_picture, their_name, their_email, my_email) {
     document.querySelector(".login-page").style.transform = "translateY(-100%)";
-    if (!showTopChat) {
-        setTimeout(function () {
-            document.querySelector(".text-input").focus();
-        }, 400)
-        document.querySelector(".chat-box").style.transform = "translateX(0)";
-    }
     chat_updater.off();
     document.querySelector(".chat-body").innerHTML = "";
 
@@ -119,7 +116,7 @@ function openChat(their_profile_picture, their_name, their_email, my_email) {
         text.appendChild(time_stamp);
         text.appendChild(triangle);
 
-        chat_body.scrollTo(0, chat_body.clientHeight)
+        chat_body.scrollBy(0, chat_body.clientHeight)
     })
 }
 
@@ -130,7 +127,6 @@ document.querySelector(".mic").addEventListener('click', function () {
             text: document.querySelector(".text-input").value.trim(),
             timeStamp: new Date().getHours() + ":" + new Date().getMinutes()
         });
-        document.querySelector(".text-input").focus();
         document.querySelector(".text-input").value = "";
     }
 })
@@ -143,7 +139,6 @@ document.querySelector(".text-input").addEventListener('keypress', function (e) 
                 text: document.querySelector(".text-input").value.trim(),
                 timeStamp: new Date().getHours() + ":" + new Date().getMinutes()
             });
-            document.querySelector(".text-input").focus();
             document.querySelector(".text-input").value = "";
         }
     }
@@ -169,7 +164,7 @@ document.querySelector(".menu-btn").addEventListener("click", () => {
     document.querySelector(".menu").classList.toggle("closed")
 })
 
-let theme = false;
+let theme = true;
 document.querySelector(".theme-toggle").addEventListener('click', function () {
     if (theme) {
         document.querySelector(".menu").classList.toggle("closed")
@@ -260,9 +255,12 @@ window.addEventListener('resize', function () {
 })
 
 function resize() {
-    document.querySelector(".chat-box").style.transform = "translateX(0px)";
     if (window.innerWidth < 450)
         document.querySelector(".menu-btn").src = "./menu-btn-mobile.png"
     else
         document.querySelector(".menu-btn").src = "./menu-btn.png";
 }
+
+document.querySelector(".log-out").addEventListener("click", () => {
+    auth.signOut();
+})

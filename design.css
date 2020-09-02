@@ -1,23 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 :root {
-    --background-color: #E5DDD5;
+    --background-color: #0D1418;
     /*#0D1418*/
-    --header-footer-color: #EEEEEE;
+    --header-footer-color: #2A2F32;
     /*#2A2F32*/
-    --input-color: #FFFFFF;
+    --input-color: #131C21;
     /*#131C21*/
-    --input-inside-color: #FFFFFF;
+    --input-inside-color: #323739;
     /*#323739*/
-    --search-box-color: #FCFCFC;
+    --search-box-color: #1E2428;
     /*#1E2428*/
-    --text-color: #000000;
+    --text-color: #FFF;
     /*#FFF*/
-    --their-text-chats-color: #FFFFFF;
+    --their-text-chats-color: #1E2428;
     /*#1E2428*/
-    --my-text-chats-color: #DAF9C7;
+    --my-text-chats-color: #054740;
     /*#054740*/
-    --chat-bg-opacity: 0.4;
+    --chat-bg-opacity: 0.1;
 }
 
 * {
@@ -218,6 +218,7 @@ body {
     background-color: var(--background-color);
     transition: .3s;
     z-index: 2;
+    transform: translateX(-100%);
 }
 
 .chat-header {
@@ -345,6 +346,7 @@ body {
     padding: 5px 8px;
     color: var(--text-color);
     border-radius: 5px;
+    max-width: 80%;
 }
 
 .text.my-msg {
@@ -475,5 +477,9 @@ body {
 
     .chat-header .title {
         color: white;
+    }
+
+    .chat-body-bg {
+        background-size: cover;
     }
 }
