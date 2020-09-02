@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Clone</title>
+    <link rel="stylesheet" href="design.css">
+    <link rel="shortcut icon" href="https://whatsapp.com/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="login-page">
+        <img src="https://logos-world.net/wp-content/uploads/2020/05/WhatsApp-Emblem.png" alt="" class="whatsapp-logo">
+        <img src="./sign in with google.png" alt="" class="logIn-btn">
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="header">
+                <div class="whatsapp">WhatsApp</div>
+                <img src="https://media-exp1.licdn.com/dms/image/C5603AQFySN0ieZxyPA/profile-displayphoto-shrink_100_100/0?e=1604534400&v=beta&t=7HZaHUTsz2q_9gdK5JMeEeC3J8cQNd9jj9_bLM3gxP4"
+                    class="my-profile-picture">
+                <div class="header-stuff">
+                    <img src="./message-btn.png" alt="" class="create-message">
+                    <img src="./menu-btn.png" alt="" class="menu-btn">
+                </div>
+            </div>
+            <div class="search-box">
+                <img src="./search-btn.png" alt="" class="search-btn">
+                <input type="text" placeholder="Search People" class="search">
+            </div>
+            <div class="chats"></div>
+        </div>
+        <div class="chat-box">
+            <div class="chat-header">
+                <img src="./go-back.png" alt="" class="back-btn">
+                <img src="https://media-exp1.licdn.com/dms/image/C5603AQFySN0ieZxyPA/profile-displayphoto-shrink_100_100/0?e=1604534400&v=beta&t=7HZaHUTsz2q_9gdK5JMeEeC3J8cQNd9jj9_bLM3gxP4"
+                    alt="" class="profile-picture">
+                <div class="chat-info">
+                    <div class="title">Chat Name</div>
+                    <div class="last-seen-at">Last text sent</div>
+                </div>
+            </div>
+            <div class="chat-body"></div>
+            <div class="chat-footer">
+                <img src="./emoji.png" alt="" class="emoji">
+                <input type="text" class="text-input" placeholder="Type a message">
+                <img src="./mic.png" alt="" class="mic">
+            </div>
+        </div>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCFQsM7jg7OnsTHNKp_pxJojFjzo8Vnby0",
+            authDomain: "app-clones.firebaseapp.com",
+            databaseURL: "https://app-clones.firebaseio.com",
+            projectId: "app-clones",
+            storageBucket: "app-clones.appspot.com",
+            messagingSenderId: "513139469670",
+            appId: "1:513139469670:web:33233d8b552307848beca7",
+            measurementId: "G-7HQSH2K08N"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <script src="app.js"></script>
+</body>
+
+</html>

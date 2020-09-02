@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-drag: none;
+    font-family: "Nunito", sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.whatsapp {
+    height: fit-content;
+    width: fit-content;
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: none;
+}
+
+.container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.sidebar {
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    background-color: black;
+}
+
+.header {
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    background-color: #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.my-profile-picture {
+    margin: auto;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    bottom: 0;
+}
+
+.header-stuff {
+    position: absolute;
+    height: 100%;
+    width: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.header-stuff img {
+    height: 15px;
+    cursor: pointer;
+}
+
+.search-box {
+    height: 60px;
+    background-color: #FCFCFC;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.search-box .search {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 70%;
+    width: 95%;
+    padding: 0 40px;
+    margin: auto;
+    position: absolute;
+    background-color: white;
+    border: 0;
+    outline: none;
+    border-radius: 50px;
+}
+
+.search-box .search-btn {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    z-index: 2;
+}
+
+.chats {
+    position: absolute;
+    height: calc(100% - 120px);
+    width: 100%;
+    background-color: white;
+    top: 120px;
+}
+
+.chat {
+    white-space: nowrap;
+    border-bottom: 1px solid #EEEEEE;
+    /* border-bottom: 1px solid #CACACA; */
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.chat:hover {
+    background-color: #EEEEEE;
+}
+
+.profile-picture {
+    height: 35px;
+    border-radius: 50px;
+}
+
+.chat .title {
+    font-size: 19px;
+}
+
+.chat .last-text {
+    margin-top: -3px;
+    color: #acacac;
+}
+
+.chat .chat-info {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.chat-box {
+    position: absolute;
+    height: 100%;
+    width: 70%;
+    left: 30%;
+    background-color: blue;
+    transition: .3s;
+    z-index: 2;
+}
+
+.chat-header {
+    height: 60px;
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    top: 0;
+    border-left: 1px solid #CACACA;
+    background-color: #EEEEEE;
+}
+
+.chat-header .profile-picture {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 15px;
+    bottom: 0;
+}
+
+.chat-header .chat-info {
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 60px;
+}
+
+.chat-header .title {
+    font-size: 19px;
+    margin: 0;
+}
+
+.chat-header .last-seen-at {
+    font-size: 15px;
+    margin-top: -3px;
+    width: fit-content;
+    color: #acacac;
+}
+
+.chat-body {
+    position: absolute;
+    height: calc(100% - 120px);
+    width: 100%;
+    top: 60px;
+    background: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+    background-size: contain;
+    padding: 10px 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.chat-body::-webkit-scrollbar {
+    appearance: none;
+    background: #EEEEEE;
+    width: 8px;
+}
+
+.chat-body::-webkit-scrollbar-thumb {
+    background: #cecece;
+}
+
+.chat-body::-webkit-scrollbar-thumb:hover {
+    background: #acacac;
+}
+
+.chat-footer {
+    position: absolute;
+    height: 60px;
+    width: 100%;
+    bottom: 0;
+    background-color: #EEEEEE;
+}
+
+.emoji {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 25px;
+    left: 20px;
+    margin: auto;
+}
+
+.text-input {
+    position: absolute;
+    height: 40px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 0;
+    outline: none;
+    padding: 0 20px;
+    width: calc(100% - 120px);
+    left: 60px;
+    border-radius: 50px;
+}
+
+.mic {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 25px;
+    right: 20px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.message-holder {
+    height: fit-content;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.text {
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px 8px;
+    background: blue;
+    border-radius: 5px;
+}
+
+.text.my-msg {
+    background: #DAF9C7;
+    margin-left: auto;
+    right: 0;
+}
+
+.text.their-msg {
+    background: white;
+    margin-right: auto;
+    left: 0;
+}
+
+.time-stamp {
+    margin-top: 2px;
+    font-size: 10px;
+    text-align: right;
+    color: #acacac;
+}
+
+.their.triangle {
+    position: absolute;
+    top: -6px;
+    height: 20px;
+    left: -10px;
+}
+
+.my.triangle {
+    position: absolute;
+    top: -6px;
+    height: 20px;
+    right: -10px;
+}
+
+.login-page {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    background-color: white;
+    z-index: 3;
+    transition: ease .3s;
+}
+
+.whatsapp-logo {
+    position: absolute;
+    height: 150px;
+    margin: auto;
+    right: 0;
+    left: 0;
+    top: 30%;
+}
+
+.logIn-btn {
+    position: absolute;
+    height: 40px;
+    margin: auto;
+    right: 0;
+    left: 0;
+    top: 50%;
+    cursor: pointer;
+}
+
+.back-btn {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    width: 25px;
+    display: none;
+}
+
+@media (max-width: 450px) {
+    .sidebar {
+        width: 100%;
+    }
+
+    .chat-body::-webkit-scrollbar {
+        display: none;
+    }
+
+    .chat-box {
+        width: 100%;
+        left: 0;
+        transform: translateX(100%);
+    }
+
+    .sidebar .header,
+    .chat-header {
+        background: #075E54;
+        color: white;
+    }
+
+    .sidebar .header .header-stuff {
+        display: none;
+    }
+
+    .sidebar .header .my-profile-picture {
+        left: unset;
+        right: 15px;
+    }
+
+    .chat-header .profile-picture {
+        left: 45px;
+    }
+
+    .chat-header .chat-info {
+        left: 90px;
+    }
+
+    .back-btn {
+        display: block;
+    }
+
+    .whatsapp {
+        display: block;
+    }
+}
