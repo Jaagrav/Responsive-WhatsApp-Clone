@@ -1,5 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
+:root {
+    --background-color: #E5DDD5;
+    /*#0D1418*/
+    --header-footer-color: #EEEEEE;
+    /*#2A2F32*/
+    --input-color: #FFFFFF;
+    /*#131C21*/
+    --input-inside-color: #FFFFFF;
+    /*#323739*/
+    --search-box-color: #FCFCFC;
+    /*#1E2428*/
+    --text-color: #000000;
+    /*#FFF*/
+    --their-text-chats-color: #FFFFFF;
+    /*#1E2428*/
+    --my-text-chats-color: #DAF9C7;
+    /*#054740*/
+    --chat-bg-opacity: 0.4;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +37,7 @@ body {
     height: fit-content;
     width: fit-content;
     color: white;
-    font-size: 30px;
+    font-size: 25px;
     position: absolute;
     left: 15px;
     top: 0;
@@ -50,8 +70,8 @@ body {
     height: 60px;
     width: 100%;
     position: absolute;
-    background-color: #EEEEEE;
-    border-bottom: 1px solid #EEEEEE;
+    background-color: var(--header-footer-color);
+    border-bottom: 1px solid var(--header-footer-color);
 }
 
 .my-profile-picture {
@@ -78,17 +98,47 @@ body {
 }
 
 .header-stuff img {
-    height: 15px;
+    height: 20px;
     cursor: pointer;
+}
+
+.menu {
+    position: absolute;
+    height: fit-content;
+    width: 150px;
+    background-color: var(--input-color);
+    color: var(--text-color);
+    margin: auto;
+    top: 50px;
+    right: 15px;
+    border-radius: 7px;
+    z-index: 2;
+    overflow: hidden;
+    transition: .3s;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.089);
+}
+
+.menu.closed {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu>div {
+    padding: 10px 8px;
+    cursor: pointer;
+}
+
+.menu div:hover {
+    background: var(--header-footer-color);
 }
 
 .search-box {
     height: 60px;
-    background-color: #FCFCFC;
+    background-color: var(--search-box-color);
     width: 100%;
     position: absolute;
     top: 60px;
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid var(--header-footer-color);
 }
 
 .search-box .search {
@@ -101,9 +151,10 @@ body {
     padding: 0 40px;
     margin: auto;
     position: absolute;
-    background-color: white;
+    background: var(--input-inside-color);
     border: 0;
     outline: none;
+    color: var(--text-color);
     border-radius: 50px;
 }
 
@@ -120,25 +171,29 @@ body {
     position: absolute;
     height: calc(100% - 120px);
     width: 100%;
-    background-color: white;
+    background-color: var(--input-color);
     top: 120px;
 }
 
 .chat {
     white-space: nowrap;
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid var(--header-footer-color);
     /* border-bottom: 1px solid #CACACA; */
     padding: 10px 20px;
     cursor: pointer;
 }
 
 .chat:hover {
-    background-color: #EEEEEE;
+    background-color: var(--header-footer-color);
 }
 
 .profile-picture {
     height: 35px;
     border-radius: 50px;
+}
+
+.title {
+    color: var(--text-color);
 }
 
 .chat .title {
@@ -160,7 +215,7 @@ body {
     height: 100%;
     width: 70%;
     left: 30%;
-    background-color: blue;
+    background-color: var(--background-color);
     transition: .3s;
     z-index: 2;
 }
@@ -171,8 +226,8 @@ body {
     margin: auto;
     width: 100%;
     top: 0;
-    border-left: 1px solid #CACACA;
-    background-color: #EEEEEE;
+    border-left: 1px solid var(--input-inside-color);
+    background-color: var(--header-footer-color);
 }
 
 .chat-header .profile-picture {
@@ -205,31 +260,32 @@ body {
     color: #acacac;
 }
 
-.chat-body {
+.chat-body,
+.chat-body-bg {
     position: absolute;
     height: calc(100% - 120px);
     width: 100%;
     top: 60px;
-    background: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
-    background-size: contain;
     padding: 10px 20px;
     overflow-x: hidden;
     overflow-y: auto;
     scroll-behavior: smooth;
 }
 
+.chat-body-bg {
+    opacity: var(--chat-bg-opacity);
+    background: url("./dark-chat-bg.png");
+    background-size: contain;
+}
+
 .chat-body::-webkit-scrollbar {
     appearance: none;
-    background: #EEEEEE;
+    background: var(--input-color);
     width: 8px;
 }
 
 .chat-body::-webkit-scrollbar-thumb {
-    background: #cecece;
-}
-
-.chat-body::-webkit-scrollbar-thumb:hover {
-    background: #acacac;
+    background: var(--header-footer-color);
 }
 
 .chat-footer {
@@ -237,7 +293,7 @@ body {
     height: 60px;
     width: 100%;
     bottom: 0;
-    background-color: #EEEEEE;
+    background-color: var(--search-box-color);
 }
 
 .emoji {
@@ -261,6 +317,8 @@ body {
     width: calc(100% - 120px);
     left: 60px;
     border-radius: 50px;
+    color: var(--text-color);
+    background-color: var(--input-inside-color)
 }
 
 .mic {
@@ -285,18 +343,18 @@ body {
     height: fit-content;
     width: fit-content;
     padding: 5px 8px;
-    background: blue;
+    color: var(--text-color);
     border-radius: 5px;
 }
 
 .text.my-msg {
-    background: #DAF9C7;
+    background: var(--my-text-chats-color);
     margin-left: auto;
     right: 0;
 }
 
 .text.their-msg {
-    background: white;
+    background: var(--their-text-chats-color);
     margin-right: auto;
     left: 0;
 }
@@ -322,12 +380,20 @@ body {
     right: -10px;
 }
 
+.my.triangle path {
+    fill: var(--my-text-chats-color);
+}
+
+.their.triangle path {
+    fill: var(--their-text-chats-color);
+}
+
 .login-page {
     position: absolute;
     height: 100%;
     width: 100%;
     margin: auto;
-    background-color: white;
+    background-color: var(--input-color);
     z-index: 3;
     transition: ease .3s;
 }
@@ -361,7 +427,7 @@ body {
     display: none;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 768px) {
     .sidebar {
         width: 100%;
     }
@@ -379,16 +445,16 @@ body {
     .sidebar .header,
     .chat-header {
         background: #075E54;
-        color: white;
+        color: var(--input-color);
     }
 
-    .sidebar .header .header-stuff {
-        display: none;
+    .sidebar .header .header-stuff .create-message {
+        opacity: 0;
     }
 
     .sidebar .header .my-profile-picture {
         left: unset;
-        right: 15px;
+        right: 35px;
     }
 
     .chat-header .profile-picture {
@@ -405,5 +471,9 @@ body {
 
     .whatsapp {
         display: block;
+    }
+
+    .chat-header .title {
+        color: white;
     }
 }

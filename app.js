@@ -94,7 +94,7 @@ function openChat(their_profile_picture, their_name, their_email, my_email) {
         const message_holder = document.createElement("div");
         const text = document.createElement("div");
         const time_stamp = document.createElement("div");
-        const triangle = document.createElement("img");
+        const triangle = document.createElement("svg");
 
         message_holder.className = "message-holder";
         text.className = "text";
@@ -103,11 +103,11 @@ function openChat(their_profile_picture, their_name, their_email, my_email) {
 
         if (snapshot.val().sender == me) {
             triangle.classList.add("my");
-            triangle.src = "./my text triangle.png";
+            triangle.innerHTML = '<svg width="20" height="20" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M58.5129 26.9913C59.9147 24.9949 58.4742 22.249 56.0349 22.2675L4.35559 22.6596C2.10991 22.6766 0.678455 25.0644 1.72168 27.0531L23.7032 68.957C24.7464 70.9457 27.5246 71.1252 28.8151 69.2873L58.5129 26.9913Z" fill="#DAF9C7"/></svg>';
             text.classList.add("my-msg");
         } else {
             triangle.classList.add("their");
-            triangle.src = "./their text triangle.png";
+            triangle.innerHTML = '<svg width="20" height="20" viewBox="0 0 71 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5977 27.0302C11.1894 25.0383 12.6209 22.2878 15.0603 22.2983L66.7406 22.522C68.9863 22.5317 70.4255 24.9148 69.3888 26.9069L47.544 68.8822C46.5072 70.8743 43.7297 71.0628 42.4332 69.2291L12.5977 27.0302Z" fill="white"/></svg>';
             text.classList.add("their-msg");
         }
 
@@ -164,3 +164,103 @@ document.querySelector(".search-box .search").addEventListener("input", function
 document.querySelector(".back-btn").addEventListener("click", () => {
     document.querySelector(".chat-box").style.transform = "translateX(100%)"
 })
+
+document.querySelector(".menu-btn").addEventListener("click", () => {
+    document.querySelector(".menu").classList.toggle("closed")
+})
+
+let theme = false;
+document.querySelector(".theme-toggle").addEventListener('click', function () {
+    if (theme) {
+        document.querySelector(".theme-toggle").textContent = "Light Theme";
+        document.documentElement.style.setProperty(
+            "--background-color",
+            "#E5DDD5"
+        )
+        document.documentElement.style.setProperty(
+            "--header-footer-color",
+            "#EEEEEE"
+        )
+        document.documentElement.style.setProperty(
+            "--input-color",
+            "#FFFFFF"
+        )
+        document.documentElement.style.setProperty(
+            "--input-inside-color",
+            "#FFFFFF"
+        )
+        document.documentElement.style.setProperty(
+            "--search-box-color",
+            "#FCFCFC"
+        )
+        document.documentElement.style.setProperty(
+            "--text-color",
+            "#000000"
+        )
+        document.documentElement.style.setProperty(
+            "--their-text-chats-color",
+            "#FFFFFF"
+        )
+        document.documentElement.style.setProperty(
+            "--my-text-chats-color",
+            "#DAF9C7"
+        )
+        document.documentElement.style.setProperty(
+            "--chat-bg-opacity",
+            "0.4"
+        )
+        theme = false;
+    } else {
+        document.querySelector(".theme-toggle").textContent = "Dark Theme";
+        document.documentElement.style.setProperty(
+            "--background-color",
+            "#0D1418"
+        )
+        document.documentElement.style.setProperty(
+            "--header-footer-color",
+            "#2A2F32"
+        )
+        document.documentElement.style.setProperty(
+            "--input-color",
+            "#131C21"
+        )
+        document.documentElement.style.setProperty(
+            "--input-inside-color",
+            "#323739"
+        )
+        document.documentElement.style.setProperty(
+            "--search-box-color",
+            "#1E2428"
+        )
+        document.documentElement.style.setProperty(
+            "--text-color",
+            "#FFF"
+        )
+        document.documentElement.style.setProperty(
+            "--their-text-chats-color",
+            "#1E2428"
+        )
+        document.documentElement.style.setProperty(
+            "--my-text-chats-color",
+            "#054740"
+        )
+        document.documentElement.style.setProperty(
+            "--chat-bg-opacity",
+            "0.1"
+        )
+        theme = true;
+    }
+})
+resize();
+
+window.addEventListener('resize', function () {
+    resize();
+})
+
+function resize() {
+    document.querySelector(".chat-box").style.transform = "translateX(0px)";
+    if (window.innerWidth < 450)
+        document.querySelector(".menu-btn").src = "./menu-btn-mobile.png"
+    else
+        document.querySelector(".menu-btn").src = "./menu-btn.png";
+}
