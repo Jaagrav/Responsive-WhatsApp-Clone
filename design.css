@@ -173,6 +173,8 @@ body {
     width: 100%;
     background-color: var(--input-color);
     top: 120px;
+    overflow-x:hidden;
+    overflow-y:auto;
 }
 
 .chat {
