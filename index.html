@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="theme-color" content="#054740">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsApp Clone</title>
+    <title>WhatsApp Clone -- One-To-One Communication</title>
     <link rel="stylesheet" href="design.css">
     <link rel="shortcut icon" href="https://whatsapp.com/favicon.ico" type="image/x-icon">
 </head>
@@ -55,9 +55,29 @@
             </div>
         </div>
     </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
-    <script src="https://pensive-meninsky-1ebb6c.netlify.app/wac.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCFQsM7jg7OnsTHNKp_pxJojFjzo8Vnby0",
+            authDomain: "app-clones.firebaseapp.com",
+            databaseURL: "https://app-clones.firebaseio.com",
+            projectId: "app-clones",
+            storageBucket: "app-clones.appspot.com",
+            messagingSenderId: "513139469670",
+            appId: "1:513139469670:web:33233d8b552307848beca7",
+            measurementId: "G-7HQSH2K08N"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
     <script src="app.js"></script>
 </body>
 
