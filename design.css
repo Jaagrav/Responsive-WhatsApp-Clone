@@ -28,6 +28,16 @@
     font-family: "Nunito", sans-serif;
 }
 
+::-webkit-scrollbar {
+    appearance: none;
+    background: var(--input-color);
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--header-footer-color);
+}
+
 body {
     overflow-x: hidden;
     overflow-y: hidden;
@@ -56,7 +66,7 @@ body {
     left: 0;
     bottom: 0;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 .sidebar {
@@ -173,8 +183,8 @@ body {
     width: 100%;
     background-color: var(--input-color);
     top: 120px;
-    overflow-x:hidden;
-    overflow-y:auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .chat {
@@ -279,16 +289,6 @@ body {
     opacity: var(--chat-bg-opacity);
     background: url("./dark-chat-bg.png");
     background-size: contain;
-}
-
-.chat-body::-webkit-scrollbar {
-    appearance: none;
-    background: var(--input-color);
-    width: 8px;
-}
-
-.chat-body::-webkit-scrollbar-thumb {
-    background: var(--header-footer-color);
 }
 
 .chat-footer {
@@ -436,7 +436,7 @@ body {
         width: 100%;
     }
 
-    .chat-body::-webkit-scrollbar {
+    ::-webkit-scrollbar {
         display: none;
     }
 
