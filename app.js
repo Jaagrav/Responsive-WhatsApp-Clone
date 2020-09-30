@@ -6,7 +6,7 @@ let showTopChat = true;
 
 window.onload = function () {
     document.querySelector('.logIn-btn').addEventListener("click", function (e) {
-        auth.signInWithPopup(provider);
+        auth.signInWithPopup(provider);//Authorization with Google Sign In
     });
 
     document.querySelector('.text-input').addEventListener("input", e => {
@@ -43,17 +43,14 @@ window.onload = function () {
 
                     img.src = snap.val().profile_picture;
                     title.textContent = snap.val().name;
-                    last_text.textContent = "Hey There! I am using WhatsApp";
+                    last_text.textContent = "No new messages";
                     last_text.classList.add(snap.key);
                     chat.addEventListener('click', function () {
                         openChat(snap.val().profile_picture, snap.val().name, snap.key, me);
                         document.querySelector(".chat-box").style.transform = "translateX(0)";
                     })
                     let cs = "";
-                    if (snap.key.localeCompare(me) < 0)
-                        cs = snap.key + me;
-                    else
-                        cs = me + snap.key;
+                    cs = (snap.key.localeCompare(me) < 0) ? (snap.key + me) : (me + snap.key);
                     firebaseRef.child("user-garbage").child(cs).on("child_added", lasttext => {
                         let sentBy = "";
                         firebaseRef.child("Profiles").child(lasttext.val().sender).once('value').then(ss => {
@@ -63,13 +60,13 @@ window.onload = function () {
                             else last_text.textContent = sentBy.substring(0, sentBy.indexOf(" ")) + ": " + lasttext.val().text;
                         });
 
-                    });
+                    });//Last Text Sent displayed using this
 
                     main_element.appendChild(chat);
                     chat.appendChild(img);
                     chat.appendChild(chat_info);
                     chat_info.appendChild(title);
-                    chat_info.appendChild(last_text);
+                    chat_info.appendChild(last_text);//Show the chat blocks
 
                     if (showTopChat) {
                         openChat(snap.val().profile_picture, snap.val().name, snap.key, me);
@@ -123,7 +120,7 @@ function openChat(their_profile_picture, their_name, their_email, my_email) {
             triangle.classList.add("their");
             triangle.innerHTML = '<svg width="20" height="20" viewBox="0 0 71 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5977 27.0302C11.1894 25.0383 12.6209 22.2878 15.0603 22.2983L66.7406 22.522C68.9863 22.5317 70.4255 24.9148 69.3888 26.9069L47.544 68.8822C46.5072 70.8743 43.7297 71.0628 42.4332 69.2291L12.5977 27.0302Z" fill="white"/></svg>';
             text.classList.add("their-msg");
-        }
+        }//Show the chat heads, ie the chat-sides text messages
 
         text.textContent = snapshot.val().text;
         time_stamp.textContent = snapshot.val().timeStamp;
@@ -149,6 +146,7 @@ document.querySelector(".mic").addEventListener('click', function () {
             text: document.querySelector(".text-input").value.trim(),
             timeStamp: new Date().getHours() + ":" + new Date().getMinutes()
         });
+        //TODO Fix TimeStamp
         document.querySelector(".text-input").value = "";
     }
 });
